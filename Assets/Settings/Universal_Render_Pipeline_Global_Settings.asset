@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ec995e51a6e251468d2a3fd8a686257, type: 3}
-  m_Name: UniversalRenderPipelineGlobalSettings
+  m_Name: Universal_Render_Pipeline_Global_Settings
   m_EditorClassIdentifier: 
   m_ShaderStrippingSetting:
     m_Version: 0
@@ -318,7 +318,7 @@ MonoBehaviour:
       type: {class: URPDefaultVolumeProfileSettings, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
       data:
         m_Version: 0
-        m_VolumeProfile: {fileID: 11400000, guid: ac0c2cad5778d4544b6a690963e02fe3, type: 2}
+        m_VolumeProfile: {fileID: 11400000, guid: e4aef5a9216c75a42b342884b3f91698, type: 2}
     - rid: 5745923602207997962
       type: {class: UniversalRenderPipelineRuntimeXRResources, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
       data:
