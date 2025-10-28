@@ -343,7 +343,6 @@ public class SceneTransitionManager : MonoBehaviour
             instance.m_MainCamera.GetComponent<UniversalAdditionalCameraData>().renderPostProcessing = true; //see same line in the locked transform case
         }
 
-        instance.m_CameraManager.FlythroughDirector = instance.screenScene.FlythroughDirector;
 
         instance.m_MainCamera.GetComponent<CinemachineBrain>().WorldUpOverride =
             instance.screenScene.WorldUpTransform;

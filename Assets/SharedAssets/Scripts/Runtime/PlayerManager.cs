@@ -16,8 +16,6 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject m_TouchInputCanvas;
     [SerializeField] private GameObject m_EventSystem;
 
-    public PlayableDirector FlythroughDirector;
-
     private bool m_InFlythrough;
     private float m_TimeIdle;
     private CinemachineCamera m_VirtualCamera;
@@ -75,28 +73,6 @@ public class PlayerManager : MonoBehaviour
             SceneTransitionManager.DisableLoadedScene();
             SceneTransitionManager.StopTransition();
         }
-
-        if (FlythroughDirector == null)
-        {
-            m_InFlythrough = true;
-        }
-        else
-        {
-            FlythroughDirector.gameObject.SetActive(true);
-
-            TimelineAsset timeline = FlythroughDirector.playableAsset as TimelineAsset;
-            FlythroughDirector.SetGenericBinding(timeline.GetOutputTrack(0), CinemachineCore.FindPotentialTargetBrain(m_VirtualCamera));
-
-            FlythroughDirector.time = 0;
-            FlythroughDirector.Play();
-            m_InFlythrough = true;
-            m_CrosshairCanvas.SetActive(false);
-
-            if (SystemInfo.deviceType == DeviceType.Handheld)
-            {
-                m_TouchInputCanvas.SetActive(false);
-            }
-        }
     }
 
     private void OnApplicationFocus(bool hasFocus)
@@ -113,11 +89,6 @@ public class PlayerManager : MonoBehaviour
         }
 
         m_CrosshairCanvas.SetActive(true);
-
-        if (FlythroughDirector != null)
-        {
-            FlythroughDirector.gameObject.SetActive(false);
-        }
         m_InFlythrough = false;
 
     }

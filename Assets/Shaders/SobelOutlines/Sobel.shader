@@ -34,6 +34,14 @@ Shader "Hidden/Custom/Sobel"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareNormalsTexture.hlsl"
 
+            float _ScanProgress;
+            float _UseScan;
+            float _ScanRange;
+            float _ScanSoftness;
+            float _ScanLineWidth;
+            float _ScanCurvePower;
+            float _ScanEdgeBoost;
+
             CBUFFER_START(UnityPerMaterial)
                 float4 _OutlineColor;
                 float  _OutlineThickness;
@@ -155,10 +163,31 @@ Shader "Hidden/Custom/Sobel"
                 float fadedWeight = lerp(1.0, weight, fadeFactor);
 
                 float fadeToggle = step(0.5, _UseDistanceFade);
-                float finalWeight = lerp(weight, fadedWeight, fadeToggle);
+                float distWeighted = lerp(weight, fadedWeight, fadeToggle);
 
-                float3 shaded = srcRGB * finalWeight;
-                float3 finalRGB = lerp(_OutlineColor.rgb, shaded, finalWeight);
+                float scanDist = saturate(_ScanProgress) * _ScanRange;
+                float cutoffDistBase = max(_ScanRange - scanDist, 0.0);
+
+                float edgeX = abs(uv.x - 0.5) * 2.0;
+                float curve01 = pow(edgeX, _ScanCurvePower);
+                float cutoffScale = lerp(1.0, _ScanEdgeBoost, curve01);
+                float cutoffDist = cutoffDistBase * cutoffScale;
+
+                float scannerMaskSoft = smoothstep(cutoffDist - _ScanSoftness, cutoffDist + _ScanSoftness, linearDist);
+
+                float scannedWeight = lerp(1.0, distWeighted, scannerMaskSoft);
+
+                float scanToggle = step(0.5, _UseScan);
+                float finalScannedWeight = lerp(distWeighted, scannedWeight, scanToggle);
+
+                float lineWidth = max(_ScanLineWidth, 1e-4);
+                float lineMaskBase = 1.0 - saturate(abs(linearDist - cutoffDist) / lineWidth);
+                float lineMask = lineMaskBase * scanToggle;
+
+                float outlinedWeight = lerp(finalScannedWeight, 0.0, lineMask);
+
+                float3 shaded = srcRGB * outlinedWeight;
+                float3 finalRGB = lerp(_OutlineColor.rgb, shaded, outlinedWeight);
 
                 return float4(finalRGB, 1.0);
             }

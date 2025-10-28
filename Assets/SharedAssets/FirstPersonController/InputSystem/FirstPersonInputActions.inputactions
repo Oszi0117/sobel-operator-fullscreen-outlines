@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "FirstPersonInputActions",
     "maps": [
         {
@@ -27,7 +28,7 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "8c4abdf8-4099-493a-aa1a-129acec7c3df",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -36,6 +37,24 @@
                     "name": "Sprint",
                     "type": "PassThrough",
                     "id": "980e881e-182c-404c-8cbf-3d09fdb48fef",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RunScanner",
+                    "type": "Button",
+                    "id": "f07d6238-b7f7-414b-8053-694f04b2a983",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DisableScanner",
+                    "type": "Button",
+                    "id": "84a5f5c7-17f1-44c8-a411-f877f410b76e",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -150,6 +169,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "43d6b83a-c51b-4f2c-80e7-4601cbb1d3dd",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c7abc411-22ac-4422-b72e-8fa860cd1fbc",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RunScanner",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "573b466f-c36d-41df-bb0b-f72bdd516b0d",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DisableScanner",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
