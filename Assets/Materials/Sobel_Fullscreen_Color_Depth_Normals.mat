@@ -12,7 +12,8 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _USEDISTANCEFADE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -28,10 +29,13 @@ Material:
     - _DepthSensitivity: 10
     - _EdgeStrength: 2
     - _EdgeThickness: 0.1
+    - _FadeEnd: 30
+    - _FadeStart: 5
     - _NormalSensitivity: 1
     - _OutlineThickness: 0.0015
     - _OverlayOriginal: 1
     - _Threshold: 0.2
+    - _UseDistanceFade: 1
     m_Colors:
     - _EdgeColor: {r: 1, g: 1, b: 1, a: 1}
     - _LumaValues: {r: 0.299, g: 0.587, b: 0.114, a: 0}
