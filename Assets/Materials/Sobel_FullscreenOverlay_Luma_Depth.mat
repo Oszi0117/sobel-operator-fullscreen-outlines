@@ -28,9 +28,9 @@ Material:
     - _EdgeStrength: 3.5
     - _EdgeThickness: 0.1
     - _OverlayOriginal: 0
-    - _Threshold: 0.35
+    - _Threshold: 0.278
     m_Colors:
-    - _EdgeColor: {r: 1, g: 0, b: 0, a: 1}
+    - _EdgeColor: {r: 0.86415094, g: 0.65708077, b: 0.65708077, a: 1}
     - _LumaValues: {r: 0.299, g: 0.587, b: 0.114, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
