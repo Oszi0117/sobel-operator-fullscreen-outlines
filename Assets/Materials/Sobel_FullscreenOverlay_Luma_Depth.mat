@@ -28,7 +28,7 @@ Material:
     - _EdgeStrength: 3.5
     - _EdgeThickness: 0.1
     - _OverlayOriginal: 0
-    - _Threshold: 0
+    - _Threshold: 0.35
     m_Colors:
     - _EdgeColor: {r: 1, g: 0, b: 0, a: 1}
     - _LumaValues: {r: 0.299, g: 0.587, b: 0.114, a: 0}

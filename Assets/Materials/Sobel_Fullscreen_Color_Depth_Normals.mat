@@ -28,16 +28,16 @@ Material:
     m_Floats:
     - _DepthSensitivity: 10
     - _EdgeStrength: 2
-    - _EdgeThickness: 0.1
-    - _FadeEnd: 30
+    - _EdgeThickness: 0.0015
+    - _FadeEnd: 50
     - _FadeStart: 5
-    - _NormalSensitivity: 1
+    - _NormalSensitivity: 0.25
     - _OutlineThickness: 0.0015
     - _OverlayOriginal: 1
     - _Threshold: 0.2
     - _UseDistanceFade: 1
     m_Colors:
-    - _EdgeColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
     - _LumaValues: {r: 0.299, g: 0.587, b: 0.114, a: 0}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
